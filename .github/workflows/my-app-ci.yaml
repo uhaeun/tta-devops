@@ -17,11 +17,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Extract Python version from python-version
+      - name: Extract Python version from .python-version
         id: extract_version
         working-directory: ${{ env.PROJECT_DIR }}
         run: |
-          version=$(cat python-version)
+          version=$(cat .python-version)
           echo "python_version=$version" >> $GITHUB_OUTPUT
 
       - name: Set up Python ${{ steps.extract_version.outputs.python_version }}
